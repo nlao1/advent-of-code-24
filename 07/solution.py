@@ -10,21 +10,28 @@ def parse(filename):
     return nums
 
 
+def test(goal, nums: List[int], *, use_concat=False):
+    if len(nums) == 1:
+        return goal == nums[0]
+    last_num = nums.pop()
+    add = test(goal - last_num, nums[:])
+    multiply = False
+    if goal % last_num == 0:
+        multiply = test(goal // last_num, nums[:])
+    concat = False
+    if use_concat:
+        num_digits_concated = len(str(last_num))
+        order_of_magnitude = 10**num_digits_concated
+        if goal % order_of_magnitude == last_num:
+            concat = test(goal // order_of_magnitude, nums[:])
+    return add or multiply or concat
+
+
 def part1(input: List[Tuple[int, List[int]]]) -> int:
     answer = 0
 
-    def test(goal, nums: List[int]):
-        if len(nums) == 1:
-            return goal == nums[0]
-        last_num = nums.pop()
-        add = test(goal - last_num, nums[:])
-        multiply = False
-        if goal % last_num == 0:
-            multiply = test(goal // last_num, nums[:])
-        return add or multiply
-
     for goal, nums in input:
-        if test(goal, nums):
+        if test(goal, nums, use_concat=False):
             answer += goal
     return answer
 
@@ -32,25 +39,8 @@ def part1(input: List[Tuple[int, List[int]]]) -> int:
 def part2(input: List[Tuple[int, List[int]]]) -> int:
     answer = 0
 
-    def test(goal, nums: List[int]):
-        if len(nums) == 1:
-            return goal == nums[0]
-        last_num = nums.pop()
-        add = test(goal - last_num, nums[:])
-        multiply = False
-        if goal % last_num == 0:
-            multiply = test(goal // last_num, nums[:])
-        concat = False
-        num_digits_concated = len(str(last_num))
-        order_of_magnitude = 10**num_digits_concated
-        if goal % order_of_magnitude == last_num:
-            concat = test(goal // order_of_magnitude, nums[:])
-        return add or multiply or concat
-
-    assert test(7290, [6, 8, 6, 15])
-
     for goal, nums in input:
-        if test(goal, nums):
+        if test(goal, nums, use_concat=True):
             answer += goal
     return answer
 
