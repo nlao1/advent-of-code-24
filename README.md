@@ -27,3 +27,7 @@ Lessons learned:
 - count vertices instead of edges, although I doubt I will ever get this again
 - BFS is useful to have pre-written
 - complex numbers are once again OP
+
+## Day 13
+
+Originally thought it was DP but I was very very wrong
