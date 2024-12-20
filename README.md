@@ -5,11 +5,18 @@
 My code is atrocious, and this took me way too long. Unproud.
 Complex numbers are a great trick though, and I'm glad I learned about them.
 
-# Day 7
+## Day 7
 
 Much better
 
-# Day 11
+## Day 11
 
 I love this problem; it's a quintessential example of how to use a hashtable in
 an interview question.
+
+## Day 12
+
+Had to get 2 hints:
+
+- can look at nodes individually for perimeter
+- count corners (I had previously eliminated this as a viable method)
