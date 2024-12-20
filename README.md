@@ -19,4 +19,11 @@ an interview question.
 Had to get 2 hints:
 
 - can look at nodes individually for perimeter
-- count corners (I had previously eliminated this as a viable method)
+- count corners (I had previously pruned trying this, although I did think of it)
+
+Lessons learned:
+
+- You can count perimeter with individual nodes
+- count vertices instead of edges, although I doubt I will ever get this again
+- BFS is useful to have pre-written
+- complex numbers are once again OP

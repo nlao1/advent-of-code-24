@@ -96,7 +96,7 @@ def sides_of(grid, graph, region, height, width, *, debug) -> int:
         elif num_neighbors == 1:
             return 2
         elif num_neighbors == 2:
-            diff1, diff2 = [neighbor - node for neighbor in graph[node]]  # len 2
+            diff1, diff2 = [neighbor - node for neighbor in graph[node]]
             corner = node + diff1 + diff2
             if node == corner:
                 return 0
