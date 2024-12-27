@@ -31,3 +31,7 @@ Lessons learned:
 ## Day 13
 
 Originally thought it was DP but I was very very wrong
+
+## Day 14
+
+Silly part 2, had to look on reddit
